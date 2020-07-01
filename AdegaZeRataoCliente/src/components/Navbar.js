@@ -34,9 +34,9 @@ class Navbar extends Component {
           <section className="collapse navbar-collapse" id="navbarMainToggler">
             <div className="navbar-nav ml-auto pr-3">
               <a className="nav-item nav-link"><Link to ="/"> Início</Link></a>
-              <a className="nav-item nav-link"><Link to="/Alterar">Alterar</Link></a>
+              {/* <a className="nav-item nav-link"><Link to="/Alterar">Alterar</Link></a> */}
               <a className="nav-item nav-link" href="#">Login</a>
-              <a className="nav-item nav-link"><Link to="/Criacao">Cadastrar</Link></a>
+              {/* <a className="nav-item nav-link"><Link to="/Criacao">Cadastrar</Link></a> */}
             </div>
             <form className="form-inline">
               <div className="input-group">

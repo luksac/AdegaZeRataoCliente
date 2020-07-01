@@ -3,19 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Criacao from './pages/Criacao';
-import Avaliar from './pages/Avaliar';
-import  {BrowserRouter, Switch, Route} from 'react-router-dom';
-import Alterar from './pages/Alterar';
+import  {BrowserRouter} from 'react-router-dom';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Switch>
-      <Route exact path = '/' component={App} />
-      <Route path = '/Criacao' component={Criacao} />
-      <Route path = '/Avaliar' component={Avaliar} />
-      <Route path = '/Alterar' component={Alterar} />
-    </Switch>
+    <App>
+
+    </App>
     </BrowserRouter>,
   document.getElementById('root')
 );

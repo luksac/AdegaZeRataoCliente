@@ -1,101 +1,118 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Rato from '../components/images/2.jpg';
-import {Link} from 'react-router-dom';
+import AuthService from '../service/authService.js';
+import AvaliacaoService from '../service/avaliacoesService.js';
+import { ButtonToolbar, Button } from 'react-bootstrap';
+import { Modal, Row, Col, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-// import './Criacao.css';
+class Avaliar extends Component {
 
-class Avaliar extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            statusModalSalvo: false,
+            statusModalErr: false,
+            retorno: false,
+            comentario: '',
+            avalicao: 1,
+            value: null,
+            id: this.props.match.params.id,
+
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    handleChange = (event) => {
+        let nam = event.target.name;
+        let val = event.target.value;
+        this.setState({ [nam]: val });
+    }
+    handleSubmit(event) {
 
 
+        const query = new URLSearchParams(this.props.location.search);
+        var inBody = {
+            idCerveja: parseInt(this.props.match.params.id),
+            comentario: this.state.comentario,
+            avalicao: parseInt(this.state.avalicao),
+        }
+        event.preventDefault();
+        AuthService.Token()
+            .then((res) => res)
+            .then((response) => {
+                AvaliacaoService.SalvarComentario(inBody, response.tokenizer)
+                    .then((res) => res)
+                    .then((response) => {
+                        let state = this.state;
+                        state.retorno = response;
 
+                        this.setState({ statusModalSalvo: true });
+
+                    }).catch(error => console.log('DetalhesError: ', error));
+            }).catch(error => console.log('AuthError: ', error));
+
+    }
     render() {
-        return(
+        let statusModalSalvo = () => this.setState({ statusModalSalvo: false });
+        let statusModalErr = () => this.setState({ statusModalErr: false });
+        return (
             <div>
-                <nav className="navbar navbar-expand-md navbar-white bg-white fixed-top">
-                    <img src={Rato} alt="raton" className="img-logo"/>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMainToggler"
-                    
-                        aria-controls="navbarMainToggler" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    
+                <div className="inputdados">
+                    <div className=" wrapper wrapper--w680 ">
+                        <div className="card card-2">
+                            <div className="card-heading"></div>
+                            <div className="card-body">
+                                <h2 className="title">Avaliar Cerveja</h2>
+                                <br></br>
+                                <form onSubmit={this.handleSubmit}>
 
-                    <section className="collapse navbar-collapse" id="navbarMainToggler">
-                        <div className="navbar-nav ml-auto pr-3">
-                        <a className="nav-item nav-link"><Link to="/">Início</Link></a>
-                        <a className="nav-item nav-link"><Link to="/Alterar">Alterar</Link></a>
-                        <a className="nav-item nav-link" href="#">Login</a>
-                        <a className="nav-item nav-link"><Link to="/Criacao">Cadastrar</Link></a>
-                        </div>
-                        <form className="form-inline">
-                        <div className="input-group">
-                            <div className="input-group-prepend">
-                            <span className="input-group-text">@</span>
+                                    <div className="input-group2">
+                                        <label>Suas considerações sobre a cerveja:</label>
+                                        <input className="input--style-2" type="text" onChange={this.handleChange} name="comentario" ></input>
+                                    </div>
+
+                                    <div className="input-group2">
+                                        <label>Avalie a cerveja:  </label><br></br>
+                                        <select onChange={this.handleChange} name="avalicao">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="">
+                                        <ButtonToolbar>
+                                            <Button className="button-Criar button-Criar-espace" type="submit" >Salvar</Button>
+                                            <Link to={'/Avaliacoes/' + this.state.id} ><Button variant='primary' className="button-Criar">Voltar</Button></Link>
+                                        </ButtonToolbar>
+                                    </div>
+                                </form>
                             </div>
-                            <input type="text" className="form-control mr-1" placeholder="Usuário" />
                         </div>
-                        <button className="btn btn-outline-success">Login</button>
-                        </form>
-                    </section>
-                </nav>
-            
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                
-
-
-
-
-
-                <div className="wrapper wrapper--w680">
-                <div className="card card-2">
-                <div className="card-heading"></div>
-                <div className="card-body">
-                    <h2 className="title">Avaliar Cerveja</h2>
-                    <form onSubmit={this.submitHandler}>
-
-
-
-
-                        <div className="input-group2">
-                            <input className="input--style-2" type="text" placeholder="Codigo Cerveja" name="idCerveja" ></input>
-                        </div>
-
-                        <div className="input-group2">
-                            <input className="input--style-2" type="text" placeholder="Codigo Detalhes" name="idDetalhes"  ></input>
-                        </div>
-
-
-                        <div className="input-group2">
-                            <input className="input--style-2" type="text" placeholder="Descrição" name="Descricao"  ></input>
-                        </div>
-
-                        <div className="input-group2">
-                            <input className="input--style-2" type="text" placeholder="Tipo" name="Tipo" ></input>
-                        </div>
-
-                        <div className="input-group2">
-                            <input className="input--style-2" type="text" placeholder="Categoria" name="Categoria" ></input>
-                        </div>
-
-
-                        <div className="input-group2">
-                            <input className="input--style-2" type="text" placeholder="IMAGEM" name="Foto" ></input>
-                        </div>
-
-                        <div className="">
-                            <button className="button-Criar" type="submit">Atualizar</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-                
+                <Modal show={this.state.statusModalSalvo} onHide={statusModalSalvo}
+                    {...this.props}
+                    size="lg"
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title id="contained-modal-title-vcenter">
+                            <img src={Rato} alt="raton" className="img-logo-modal" />
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body className="txt-alinh">
+                        <p className="text-cerv-aval">{this.state.retorno.message}</p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                    </Modal.Footer>
+
+                </Modal>
             </div>
         );
     }

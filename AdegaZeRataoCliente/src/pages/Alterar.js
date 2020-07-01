@@ -5,14 +5,7 @@ import {Link} from 'react-router-dom';
 // import './Criacao.css';
 
 
-
-
-
-
 class Alterar extends Component{
-
-
-
     render() {
         return(
             <div>

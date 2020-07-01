@@ -45,20 +45,55 @@ body {
   background-size: cover;
 
 }
-
+.link{
+  background-color: black; /* Green */
+  border: none;
+  color: white;
+  display: flex;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-left: 6%;
+  font-style : 'Times New Roman', Times, serif;
+  width: 41%;
+  padding-left: 8%;
+}
 .button {
   background-color: black; /* Green */
   border: none;
   color: white;
-  padding: 12px 90px;
-  text-align: center;
-  text-decoration: none;
   display: flex;
   font-size: 14px;
-  margin-bottom: 3px;
-  margin-left: 17px;
+  margin-bottom: 5px;
+  margin-left: 6%;
   font-style : 'Times New Roman', Times, serif;
+  width: 41%;
+  padding-left: 16%;
  
+}
+.button-home{
+  width: 240px;
+  margin-left: 10%;
+  padding-left: 35%;
+}
+.button-avaliacoes{
+  text-align: center;
+  margin: 10px;
+  width: 400px;
+  padding-left: 35%;
+}
+.button-avaliacoes-voltar{
+  padding-left: 42%;
+}
+.buttonModal{
+  background-color: black; /* Green */
+  border: none;
+  color: white;
+  display: flex;
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-style : 'Times New Roman', Times, serif;
+  width: 105%;
+  padding-left: 20%;
 }
 
 .button-Criar{
@@ -71,11 +106,20 @@ body {
   display: flex;
   font-size: 14px;
   margin-bottom: 3px;
-  
   font-style : 'Times New Roman', Times, serif;
-
 }
-
+.button-Criar-espace{
+  margin-right: 39%;
+}
+.button-cadcerveja{
+  width: 80%;
+  padding-left: 35%;
+  margin-left: 10%;
+  margin-top: 12%;
+}
+.Toolbar-avaliacoes{
+  margin-left: 14%;
+}
 .text-app{
   font-family: Garamond;
 }
@@ -84,10 +128,18 @@ body {
   font-family: 'Times New Roman', Times, serif;
   color: grey;
   font-weight: bold;
-  margin-left: 75px;
+  margin-left: 2%;
  
 }
-
+.text-cerv-aval{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 40px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 3%;
+ 
+}
 .text-cerv-modal{
   font-family: 'Times New Roman', Times, serif;
   color: #222;
@@ -95,6 +147,9 @@ body {
   
 }
 
+.inputdados{
+  padding-top: 150px;
+}
 .text-cerv-modal-descricao{
   font-family: 'Times New Roman', Times, serif;
   color: black;
@@ -107,7 +162,6 @@ body {
   width: auto;
   height: auto;
   margin-left: 17px;
-  
 }
 
 .hidden{
@@ -138,23 +192,40 @@ body {
 .img-logo-modal{
   max-width: 600px;
   max-height:80px;
+  padding-right: 180px;
   
 }
+.buttonAvaliar{
+  margin-top: 10%;
+  margin-left: 80%;
 
+}
 .txt-alinh{
   text-align: center;
 }
 
 .ajust{
-  margin-left: 500px;
+  margin: 10%;
   margin-top: 130px;
 }
 
+.alinh{
+  text-align: center;
+}
 .style-tree{
   
   border-radius: 6px;
   background: white;
   margin-top: 1px;
+}
+
+.style-tree-aval{
+  
+  border-radius: 6px;
+  background: white;
+  margin-top: 10%;
+  margin-left: 20%;
+
 }
 
 .img-foto-modal{
