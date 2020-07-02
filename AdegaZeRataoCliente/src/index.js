@@ -3,13 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import  {BrowserRouter} from 'react-router-dom';
+import  {BrowserRouter, Switch} from 'react-router-dom';
+import Login from './pages/Login';
+import { Route } from 'react-router-dom';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App>
+ 
 
-    </App>
+    
+    <Switch>
+    <Route path='/' exact component={Login} />
+    <App></App>
+    </Switch>
+    
     </BrowserRouter>,
   document.getElementById('root')
 );

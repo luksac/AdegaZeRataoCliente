@@ -43,7 +43,7 @@ class Criacao extends Component {
                     .then((res) => res)
                     .then((response) => {
                         console.log('AQUI', response);
-                        if (response.status == 400) {
+                        if (response.status == 400 || response.status == 0) {
                             this.setState({ error_status: true })
                         } else {
                             this.setState({ sucess_stats: true })
@@ -54,6 +54,7 @@ class Criacao extends Component {
     }
     render() {
         const { Descricao, Tipo, Categoria, error_status } = this.state
+        
         return (
 
             <div>
@@ -68,20 +69,11 @@ class Criacao extends Component {
 
                     <section className="collapse navbar-collapse" id="navbarMainToggler">
                         <div className="navbar-nav ml-auto pr-3">
-                            <a className="nav-item nav-link"><Link to="/">Início</Link></a>
-                            <a className="nav-item nav-link"><Link to="/Alterar">Alterar</Link></a>
-                            <a className="nav-item nav-link" href="#">Login</a>
-                            <a className="nav-item nav-link"><Link to="/Criacao">Cadastrar</Link></a>
+                            <a className="nav-item nav-link"><Link to="/Home">Início</Link></a>
+                            <a className="nav-item nav-link"><Link to ="/"> Sair</Link></a>
+                         
                         </div>
-                        <form className="form-inline">
-                            <div className="input-group">
-                                <div className="input-group-prepend">
-                                    <span className="input-group-text">@</span>
-                                </div>
-                                <input type="text" className="form-control mr-1" placeholder="Usuário" />
-                            </div>
-                            <button className="btn btn-outline-success">Login</button>
-                        </form>
+    
                     </section>
                 </nav>
                 <br />
@@ -96,7 +88,8 @@ class Criacao extends Component {
                         this.state.sucess_stats ?
                             <div class="alert alert-success alert-dismissible" id="mensagem-erro">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>Erro!</strong> Registro Criado Com Sucesso!
+                                <strong>Sucesso!</strong> Registro Criado Com Sucesso!
+                                
                 </div>
                             :
                             <div>

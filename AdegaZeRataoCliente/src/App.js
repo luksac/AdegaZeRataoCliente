@@ -6,6 +6,8 @@ import Criacao from './pages/Criacao';
 import Avaliar from './pages/Avaliar';
 import Home from './pages/Home';
 import { Switch, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import CadastroUsuario from './pages/CadastroUsuario';
 
 class App extends Component {
     render() {
@@ -16,11 +18,14 @@ class App extends Component {
                 </header>
                 <main>
                     <Switch>
-                        <Route path='/' exact component={Home} />
+                        <Route path='/Home' exact component={Home} />
                         <Route path='/Criacao' exact component={Criacao} />
                         <Route path='/Avaliar/:id' exact component={Avaliar} />
                         <Route path='/Alterar' exact component={Alterar} />
                         <Route path='/Avaliacoes/:id' exact component={Avaliacoes} />
+                        <Route path='/CadastroUsuario' exact component={CadastroUsuario} />
+                        
+
                     </Switch>
                     
                 </main>

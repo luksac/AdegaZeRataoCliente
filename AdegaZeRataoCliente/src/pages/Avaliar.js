@@ -87,7 +87,7 @@ class Avaliar extends Component {
                                     <div className="">
                                         <ButtonToolbar>
                                             <Button className="button-Criar button-Criar-espace" type="submit" >Salvar</Button>
-                                            <Link to={'/Avaliacoes/' + this.state.id} ><Button variant='primary' className="button-Criar">Voltar</Button></Link>
+                                            <Link to={'/Avaliacoes/ ' + this.state.id} ><Button variant='primary' className="button-Criar">Voltar</Button></Link>
                                         </ButtonToolbar>
                                     </div>
                                 </form>

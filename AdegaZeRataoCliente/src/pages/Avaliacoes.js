@@ -66,7 +66,7 @@ class Avaliacoes extends Component {
                         })}
                     </div>
                     <ButtonToolbar className="Toolbar-avaliacoes">
-                        <Link to='/'><Button variant='primary' className="button button-avaliacoes button-avaliacoes-voltar">Voltar</Button></Link>
+                        <Link to='/Home'><Button variant='primary' className="button button-avaliacoes button-avaliacoes-voltar">Voltar</Button></Link>
                         <Link to={'/Avaliar/' + this.state.id}><Button variant='primary' className="button button-avaliacoes">Avalie esta Cerveja</Button></Link>
                     </ButtonToolbar>
                     <Modal show={this.state.statusVazio} onHide={statusVazio}

@@ -89,7 +89,7 @@ class Home extends Component {
                                             <ButtonToolbar>
                                                 <Button variant='primary' onClick={(e) => this.listaDetalhes(Cerveja.idDetalhes)} className="button">Detalhes</Button>
                                                 {/* <Button variant='primary' onClick={this.routeChange(Cerveja.idCerveja)} className="button">Avaliacoes</Button> */}
-                                                <Link to={'/Avaliacoes/' + Cerveja.idCerveja}><Button variant='primary' className="button button-home">Avaliacoes</Button></Link>
+                                                <Link to={'/Avaliacoes/' + Cerveja.idCerveja}><Button variant='primary' className="button button-home">Avaliações</Button></Link>
                                             </ButtonToolbar>
 
                                             <Modal show={this.state.statusModalDetal} onHide={statusModalDetal}
