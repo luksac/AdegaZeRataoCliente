@@ -26,6 +26,20 @@ const CervejaService = {
             .then(response => response.json())
             .then((result) => { return result })
             .catch(error => { return error });
+    },
+    Alterar: function (inBody,inHeader) {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Basic " + inHeader);
+        myHeaders.append( 'Content-Type','application/json' );
+        var requestOptions = {
+            method: 'PUT',
+            headers: myHeaders,
+            body: inBody
+        };
+        return fetch(Credenciais.endpoint + "/Cerveja/Atualizar", requestOptions)
+            .then(response => response.json())
+            .then((result) => { return result })
+            .catch(error => { return error });
     }
 };
 

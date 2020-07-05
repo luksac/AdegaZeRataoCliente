@@ -35,6 +35,7 @@ class Navbar extends Component {
             <div className="navbar-nav ml-auto pr-3">
               <a className="nav-item nav-link"><Link to ="/Home"> Início</Link></a>
               <a className="nav-item nav-link"><Link to ="/"> Sair</Link></a>
+              <a className="nav-item nav-link"><Link to ="/Alterar"> Alterar</Link></a>
               {/* <a className="nav-item nav-link"><Link to="/Alterar">Alterar</Link></a> */}
              
               {/* <a className="nav-item nav-link"><Link to="/Criacao">Cadastrar</Link></a> */}
